@@ -8,7 +8,7 @@ using namespace std;
 using namespace Eigen;
 
 void solveAxB() {
-    cout << "--- Задача 2: Решение Ax = B ---\n";
+    cout << "--- Problem 2: Solution Ax = B ---\n";
     // Пример невырожденной матрицы 3x3 и вектора B
     Matrix3d A;
     A << 2, -1, 1,
@@ -19,11 +19,11 @@ void solveAxB() {
 
     // Решение уравнения с помощью QR-разложения
     Vector3d x = A.colPivHouseholderQr().solve(B);
-    cout << "Вектор x:\n" << x << "\n\n";
+    cout << "Vector x:\n" << x << "\n\n";
 }
 
 void compareVectors() {
-    cout << "--- Задача 3: Векторы x и y (n = 1000) ---\n";
+    cout << "--- Problem 3: Vectors x and y (n = 1000) ---\n";
     int n = 1000;
     
     // Генерация случайных векторов в Eigen
@@ -37,8 +37,8 @@ void compareVectors() {
     auto end = chrono::high_resolution_clock::now();
     auto ms_eigen = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
-    cout << "Eigen - Скалярное произведение: " << dot_eigen << ", Норма x: " << norm_eigen << "\n";
-    cout << "Время (Eigen): " << ms_eigen.count() << " ns\n";
+    cout << "Eigen - Dot product: " << dot_eigen << ", Norm x: " << norm_eigen << "\n";
+    cout << "Time (Eigen): " << ms_eigen.count() << " ns\n";
 
     // 2. Ручное вычисление в цикле
     vector<double> x_man(x_eigen.data(), x_eigen.data() + x_eigen.size());
@@ -55,8 +55,8 @@ void compareVectors() {
     end = chrono::high_resolution_clock::now();
     auto ms_manual = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
-    cout << "Ручное - Скалярное произведение: " << dot_manual << ", Норма x: " << norm_manual << "\n";
-    cout << "Время (Ручное): " << ms_manual.count() << " ns\n";
+    cout << "Manual - Dot Product: " << dot_manual << ", Norm x: " << norm_manual << "\n";
+    cout << "Time (Manual): " << ms_manual.count() << " ns\n";
 }
 
 int main() {
