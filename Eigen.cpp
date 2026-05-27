@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <chrono>
-#include <Eigen/Dense> // Требуется установленная библиотека Eigen
+#include <Eigen/Dense>
 
 using namespace std;
 using namespace Eigen;
@@ -40,7 +40,7 @@ void compareVectors() {
     cout << "Eigen - Скалярное произведение: " << dot_eigen << ", Норма x: " << norm_eigen << "\n";
     cout << "Время (Eigen): " << ms_eigen.count() << " ns\n";
 
-    // 2. Ручное вычисление в цикле (копируем данные в std::vector для честности)
+    // 2. Ручное вычисление в цикле
     vector<double> x_man(x_eigen.data(), x_eigen.data() + x_eigen.size());
     vector<double> y_man(y_eigen.data(), y_eigen.data() + y_eigen.size());
 
