@@ -8,13 +8,13 @@ int main() {
     cv::Mat image = cv::imread("path_to_your_image.jpg"); 
     
     if (image.empty()) {
-        std::cerr << "Ошибка: не удалось загрузить изображение." << std::endl;
+        std::cerr << "Error: Failed to load image." << std::endl;
         return -1;
     }
 
     // Создаем окна для отображения
-    cv::namedWindow("Исходное изображение", cv::WINDOW_NORMAL);
-    cv::namedWindow("Обработанное изображение", cv::WINDOW_NORMAL);
+    cv::namedWindow("Original image", cv::WINDOW_NORMAL);
+    cv::namedWindow("Processed image", cv::WINDOW_NORMAL);
 
     // Конвертируем в оттенки серого
     cv::Mat grayImage;
@@ -25,8 +25,8 @@ int main() {
     cv::GaussianBlur(grayImage, blurredImage, cv::Size(5, 5), 0);
 
     // Отображаем результаты
-    cv::imshow("Исходное изображение", image);
-    cv::imshow("Обработанное изображение", blurredImage);
+    cv::imshow("Original image", image);
+    cv::imshow("Processed image", blurredImage);
     cv::waitKey(0);
     return 0;
 }
