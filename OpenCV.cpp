@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
     // Загружаем изображение
-    // ВАЖНО: укажи реальный путь, например "test.jpg"
     cv::Mat image = cv::imread("path_to_your_image.jpg"); 
     
     if (image.empty()) {
@@ -28,9 +27,6 @@ int main() {
     // Отображаем результаты
     cv::imshow("Исходное изображение", image);
     cv::imshow("Обработанное изображение", blurredImage);
-
-    // Ждем нажатия клавиши
     cv::waitKey(0);
-
     return 0;
 }
